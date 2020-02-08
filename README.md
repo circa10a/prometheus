@@ -2,6 +2,8 @@
 
 Deployment of my personal prometheus instance via terraform cloud
 
+![alt text](https://i.imgur.com/iA5g04n.png)
+
 ## Configuration
 
 ### Inputs
