@@ -1,5 +1,8 @@
 # prometheus
 
+![alt text](https://img.shields.io/badge/Terraform%20Cloud-Enabled-blueviolet)
+![alte text](https://img.shields.io/badge/Digital%20Ocean-Deployed-blue)
+
 Deployment of my personal prometheus instance via terraform cloud
 
 ![alt text](https://i.imgur.com/iA5g04n.png)
