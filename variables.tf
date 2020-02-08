@@ -26,6 +26,11 @@ variable "do_droplet_ssh_key_fingerprints" {
     type = list(string)
 }
 
+variable "ssh_key" {
+    type = string
+    description = "Private key used to connect to droplets for provisioning"
+}
+
 variable "prometheus_config_file" {
     type = string
     default = "./prometheus.yml"

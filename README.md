@@ -14,4 +14,5 @@ Deployment of my personal prometheus instance via terraform cloud
 | `do_droplet_name`                 | string | `prometheus`                               |
 | `do_droplet_size`                 | string | `s-1vcpu-1gb`                              |
 | `do_droplet_ssh_key_fingerprints` | list   | `[]`                                       |
+| `ssh_key`                         | string | `""`                                       |
 | `prometheus_config_file`          | string | `./prometheus.yml`                         |

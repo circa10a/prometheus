@@ -1,7 +1,3 @@
-locals {
-    ssh_key = file("./do-ci")
-}
-
 resource "digitalocean_droplet" "prometheus" {
   image    = var.do_droplet_image
   name     = var.do_droplet_name
@@ -18,7 +14,7 @@ resource "digitalocean_droplet" "prometheus" {
         type     = "ssh"
         user     = "root"
         host     = self.ipv4_address
-        private_key = local.ssh_key
+        private_key = var.ssh_key
     }
   }
   # Restart service after uploading new config file
@@ -31,7 +27,7 @@ resource "digitalocean_droplet" "prometheus" {
         type     = "ssh"
         user     = "root"
         host     = self.ipv4_address
-        private_key = local.ssh_key
+        private_key = var.ssh_key
     }
   }
 }
