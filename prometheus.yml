@@ -10,8 +10,8 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9100']
 
-  - job_name: 'google-home-aws-news'
+  - job_name: 'witch'
     scheme: https
     scrape_interval: 60s
     static_configs:
-    - targets: ['google-home-aws-news.herokuapp.com:443']
+    - targets: ['witchonstephendrive.com:443']

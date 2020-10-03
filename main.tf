@@ -11,22 +11,26 @@ resource "digitalocean_droplet" "prometheus" {
     destination = "/etc/prometheus/prometheus.yml"
 
     connection {
-        type     = "ssh"
-        user     = "root"
-        host     = self.ipv4_address
+        type        = "ssh"
+        user        = "root"
+        host        = self.ipv4_address
         private_key = var.ssh_key
     }
   }
-  # Restart service after uploading new config file
+
+  # Add data retention arg to systemd service
+  # Reload system daemon units
   provisioner "remote-exec" {
     inline = [
-      "systemctl reload prometheus.service"
+      "sed -i 's/\\/usr\\/local\\/bin\\/prometheus/\\/usr\\/local\\/bin\\/prometheus --storage.tsdb.retention.time=30d/' /etc/systemd/system/prometheus.service",
+      "systemctl daemon-reload",
+      "systemctl restart prometheus"
     ]
 
     connection {
-        type     = "ssh"
-        user     = "root"
-        host     = self.ipv4_address
+        type        = "ssh"
+        user        = "root"
+        host        = self.ipv4_address
         private_key = var.ssh_key
     }
   }
