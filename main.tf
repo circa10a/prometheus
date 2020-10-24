@@ -11,10 +11,10 @@ resource "digitalocean_droplet" "prometheus" {
     destination = "/etc/prometheus/prometheus.yml"
 
     connection {
-        type        = "ssh"
-        user        = "root"
-        host        = self.ipv4_address
-        private_key = var.ssh_key
+      type        = "ssh"
+      user        = "root"
+      host        = self.ipv4_address
+      private_key = var.ssh_key
     }
   }
 
@@ -28,10 +28,10 @@ resource "digitalocean_droplet" "prometheus" {
     ]
 
     connection {
-        type        = "ssh"
-        user        = "root"
-        host        = self.ipv4_address
-        private_key = var.ssh_key
+      type        = "ssh"
+      user        = "root"
+      host        = self.ipv4_address
+      private_key = var.ssh_key
     }
   }
 }
